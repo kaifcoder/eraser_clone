@@ -1,0 +1,63 @@
+{
+    "footerLinks": [
+        {
+            "title": "Services",
+            "links": [
+                {
+                    "label": "1on1 Coaching",
+                    "href": "#"
+                },
+                {
+                    "label": "Company Review",
+                    "href": "#"
+                },
+                {
+                    "label": "Accounts Review",
+                    "href": "#"
+                },
+                {
+                    "label": "HR Consulting",
+                    "href": "#"
+                },
+                {
+                    "label": "SEO Optimisation",
+                    "href": "#"
+                }
+            ]
+        },
+        {
+            "title": "Company",
+            "links": [
+                {
+                    "label": "About",
+                    "href": "#"
+                },
+                {
+                    "label": "Meet the Team",
+                    "href": "#"
+                },
+                {
+                    "label": "Accounts Review",
+                    "href": "#"
+                }
+            ]
+        },
+        {
+            "title": "Helpful Links",
+            "links": [
+                {
+                    "label": "Contact",
+                    "href": "#"
+                },
+                {
+                    "label": "FAQs",
+                    "href": "#"
+                },
+                {
+                    "label": "Live Chat",
+                    "href": "#"
+                }
+            ]
+        }
+    ]
+}
