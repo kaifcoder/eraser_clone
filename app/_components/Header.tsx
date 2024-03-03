@@ -1,7 +1,15 @@
 import Image from "next/image";
 import React from "react";
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Button } from "@/components/ui/button";
 
-const Header = () => {
+const Header = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
   return (
     <header className="z-10 backdrop-blur-xl w-full fixed">
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
@@ -67,18 +75,28 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
-              <a
-                className="block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-500 "
-                href="#"
-              >
-                Login
-              </a>
-              <a
-                className="hidden md:block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700"
-                href="#"
-              >
-                Register
-              </a>
+              {user && (
+                <Button>
+                  <LoginLink>Go to Dashboard</LoginLink>
+                </Button>
+              )}
+
+              {!user && (
+                <>
+                  <LoginLink
+                    postLoginRedirectURL="/dashboard"
+                    className="block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-500 "
+                  >
+                    Login
+                  </LoginLink>
+                  <RegisterLink
+                    postLoginRedirectURL="/dashboard"
+                    className="hidden md:block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700"
+                  >
+                    Register
+                  </RegisterLink>
+                </>
+              )}
             </div>
 
             <button className="block rounded bg-gray-100 p-2.5 text-black transition hover:text-gray-500/75 md:hidden">

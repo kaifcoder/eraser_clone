@@ -1,3 +1,4 @@
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { ArrowRight } from "lucide-react";
 import React from "react";
 
@@ -28,15 +29,12 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              className="flex items-center w-full rounded-lg border border-white bg-neutral-100 px-4 py-2 text-sm font-medium text-black hover:bg-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              href="#"
-            >
+            <LoginLink className="flex items-center w-full rounded-lg border border-white bg-neutral-100 px-4 py-2 text-sm font-medium text-black hover:bg-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
               Get Started
               <p className="ml-2">
                 <ArrowRight size={24} />
               </p>
-            </a>
+            </LoginLink>
           </div>
         </div>
       </div>
