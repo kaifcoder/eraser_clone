@@ -8,5 +8,6 @@ export const config = {
     "/dashboard/:path*",
     "/team/create",
     "/team/create/:path*",
+    "/workspace/:fileId*",
   ],
 };

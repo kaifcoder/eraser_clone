@@ -36,33 +36,35 @@
   }
  
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
  
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
  
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
  
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
  
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
  
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
  
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
  
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
   }
 }
  
@@ -73,4 +75,104 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #313030;
+  border-radius: 5px;
+  marker-start: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #807f7fd1;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+.cdx-notify--error {
+background: #fb5d5d !important;
+}
+
+.cdx-notify__cross::after,
+.cdx-notify__cross::before {
+background: white;
+}
+
+ .ce-inline-toolbar,
+ .codex-editor--narrow .ce-toolbox,
+ .ce-conversion-toolbar,
+ .ce-settings,
+ .ce-settings__button,
+ .ce-toolbar__settings-btn,
+ .cdx-button,
+ .ce-popover,
+ .ce-toolbar__plus:hover {
+background: #fff;
+color: #000;
+}
+
+ .ce-inline-tool,
+ .ce-conversion-toolbar__label,
+ .ce-toolbox__button,
+ .cdx-settings-button,
+ .ce-toolbar__plus {
+color: #616161;
+}
+
+ ::selection {
+background: #4d4d4d;
+}
+
+ .cdx-settings-button:hover,
+ .ce-settings__button:hover,
+ .ce-toolbox__button--active,
+ .ce-toolbox__button:hover,
+ .cdx-button:hover,
+ .ce-inline-toolbar__dropdown:hover,
+ .ce-inline-tool:hover,
+ .ce-popover__item:hover,
+ .ce-toolbar__settings-btn:hover {
+background-color: #4d4d4d;
+color: #fff;
+}
+
+ .cdx-notify--error {
+background: #fb5d5d !important;
+}
+
+ .cdx-notify__cross::after,
+ .cdx-notify__cross::before {
+background: #1a1a1a;
+}
+
+h1.ce-header{
+  @apply text-3xl font-bold
+}
+h2.ce-header{
+  @apply text-2xl font-semibold
+}
+h3.ce-header{
+  @apply text-xl font-semibold
+}
+h4.ce-header{
+  @apply text-lg font-semibold
+}
+h5.ce-header{
+  @apply text-base font-semibold
+}
+h6.ce-header{
+  @apply text-base font-semibold
 }

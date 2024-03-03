@@ -1,11 +1,12 @@
 "use client";
 
 import Sidebar from "@/app/_components/Sidebar";
+import { FileListContext } from "@/app/_context/FileListContext";
 import { api } from "@/convex/_generated/api";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useConvex } from "convex/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function DashboardLayout({
   children,
@@ -15,6 +16,8 @@ export default function DashboardLayout({
   const { user } = useKindeBrowserClient();
   const convex = useConvex();
   const router = useRouter();
+
+  const [fileList, setFileList] = useState([] as any[]);
 
   useEffect(() => {
     if (user) {
@@ -32,15 +35,22 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className="h-screen">
-      <div className="grid grid-cols-5">
-        <div>
-          <Sidebar />
+    <div className="h-screen overscroll-x-none" suppressHydrationWarning>
+      <FileListContext.Provider
+        value={{
+          fileList,
+          setFileList,
+        }}
+      >
+        <div className="grid sm:grid-cols-5 ">
+          <div className="sm:col-span-1">
+            <Sidebar />
+          </div>
+          <div className="sm:col-span-4 h-screen overscroll-x-none overflow-y-auto w-full">
+            {children}
+          </div>
         </div>
-        <div className="grid-cols-4 pl-4 border-l border-neutral-800 w-[80vw]">
-          {children}
-        </div>
-      </div>
+      </FileListContext.Provider>
     </div>
   );
 }

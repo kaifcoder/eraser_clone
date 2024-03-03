@@ -26,7 +26,7 @@ export interface Team {
   createdBy: string;
 }
 
-const SidebarTopButton = () => {
+const SidebarTopButton = ({ user, setActiveTeamInfo }: any) => {
   const router = useRouter();
   const convex = useConvex();
   const menu = [
@@ -43,14 +43,15 @@ const SidebarTopButton = () => {
       icon: <Settings size={16} className="mr-2" />,
     },
   ];
-  const { user } = useKindeBrowserClient();
+  const [activeTeam, setActiveTeam] = useState<Team>();
+  let [teamList, setTeamList] = useState([] as Team[]);
+
   const getTeamList = async () => {
     const result = await convex.query(api.teams.getTeams, {
       email: user?.email!,
     });
-    console.log(result);
     setTeamList(result as Team[]);
-    setSelectedTeam(result[0].teamName);
+    setActiveTeam(result[0]);
     return result;
   };
 
@@ -60,10 +61,10 @@ const SidebarTopButton = () => {
     }
   }, [user]);
 
-  let [teamList, setTeamList] = useState([] as Team[]);
-  const [selectedTeam, setSelectedTeam] = useState(
-    "Select Team" as string | undefined
-  );
+  useEffect(() => {
+    activeTeam ? setActiveTeamInfo(activeTeam) : null;
+  }, [activeTeam]);
+
   let [isOpen, setIsOpen] = useState(false);
   return (
     <DropdownMenu>
@@ -75,20 +76,21 @@ const SidebarTopButton = () => {
           )}
         >
           <img src="/logo.svg" alt="logo" className="w-8 h-8" />
-          <h2 className="text-sm font-semibold">{selectedTeam}</h2>
+          <h2 className="text-sm font-semibold">{activeTeam?.teamName}</h2>
           <ChevronDown size={16} />
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-neutral-950 gap-1 rounded-lg text-white border-neutral-700 w-60 ml-4 mt-2">
+      <DropdownMenuContent className="bg-neutral-800 gap-1 rounded-lg text-white border-neutral-600 w-60 ml-4 mt-2">
         {teamList &&
           teamList.map((team) => (
             <DropdownMenuItem
               key={team.teamName}
-              onClick={() => setSelectedTeam(team.teamName)}
+              onClick={() => setActiveTeam(team)}
               className={cn(
                 "cursor-pointer focus:bg-neutral-700 focus:text-white",
                 {
-                  "bg-blue-500 text-white": selectedTeam === team.teamName,
+                  "bg-blue-500 text-white":
+                    activeTeam?.teamName === team.teamName,
                 }
               )}
             >
@@ -96,7 +98,7 @@ const SidebarTopButton = () => {
             </DropdownMenuItem>
           ))}
 
-        <DropdownMenuSeparator className="bg-neutral-800" />
+        <DropdownMenuSeparator className="bg-neutral-600" />
         {menu.map((item) => (
           <DropdownMenuItem
             key={item.id}
@@ -115,7 +117,7 @@ const SidebarTopButton = () => {
           <LogoutLink>Logout</LogoutLink>
         </DropdownMenuItem>
 
-        <DropdownMenuSeparator className="bg-neutral-800" />
+        <DropdownMenuSeparator className="bg-neutral-600" />
         <div className="flex items-center space-x-2 p-2 rounded-lg">
           <div>
             <img

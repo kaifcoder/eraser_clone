@@ -1,0 +1,32 @@
+.cdx-block,
+.ce-header,
+.inlineToolButton,
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn,
+.ce-popover__search {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.ce-toolbar__plus:hover,
+.ce-toolbar__settings-btn:hover,
+.cdx-loader,
+.cdx-button {
+  color: white;
+  background-color: #262626;
+}
+
+.cdx-button:hover {
+  background-color: #2f2f2f;
+}
+
+.ce-popover,
+.ce-popover-item,
+.ce-popover-item__icon,
+.ce-popover-items,
+.ce-popover-item:hover {
+  --color-background-item-hover: #2f2f2f;
+  background-color: #262626;
+  color: white;
+  border: none;
+}
