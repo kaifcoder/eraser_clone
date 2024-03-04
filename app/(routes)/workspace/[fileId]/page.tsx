@@ -11,11 +11,11 @@ import { useConvex } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { FILE } from "../../dashboard/_components/DashboardTable";
 
-export const Editor = dynamic(() => import("../_components/Editor"), {
+const Editor = dynamic(() => import("../_components/Editor"), {
   ssr: false,
 });
 
-export const Canvas = dynamic(() => import("../_components/Canvas"), {
+const Canvas = dynamic(() => import("../_components/Canvas"), {
   ssr: false,
 });
 
