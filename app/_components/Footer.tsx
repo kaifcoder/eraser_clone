@@ -1,8 +1,68 @@
 import React from "react";
-import { footerLinks } from "./Footerlinks.json";
 import Image from "next/image";
 
 const Footer = () => {
+  const footerLinks = [
+    {
+      title: "Services",
+      links: [
+        {
+          label: "1on1 Coaching",
+          href: "#",
+        },
+        {
+          label: "Company Review",
+          href: "#",
+        },
+        {
+          label: "Accounts Review",
+          href: "#",
+        },
+        {
+          label: "HR Consulting",
+          href: "#",
+        },
+        {
+          label: "SEO Optimisation",
+          href: "#",
+        },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        {
+          label: "About",
+          href: "#",
+        },
+        {
+          label: "Meet the Team",
+          href: "#",
+        },
+        {
+          label: "Accounts Review",
+          href: "#",
+        },
+      ],
+    },
+    {
+      title: "Helpful Links",
+      links: [
+        {
+          label: "Contact",
+          href: "#",
+        },
+        {
+          label: "FAQs",
+          href: "#",
+        },
+        {
+          label: "Live Chat",
+          href: "#",
+        },
+      ],
+    },
+  ];
   return (
     <footer className="bg-neutral-900">
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
