@@ -26,3 +26,32 @@ export const getFiles = query({
       .collect();
   },
 });
+
+export const updateDocument = mutation({
+  args: {
+    _id: v.id("files"),
+    document: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.patch(args._id, { document: args.document });
+  },
+});
+
+export const updateWhiteboard = mutation({
+  args: {
+    _id: v.id("files"),
+    whiteboard: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.patch(args._id, { whiteboard: args.whiteboard });
+  },
+});
+
+export const getFilebyId = query({
+  args: {
+    _id: v.id("files"),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.get(args._id);
+  },
+});

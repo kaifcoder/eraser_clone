@@ -1,24 +1,26 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  GitBranch,
-  GitBranchPlus,
-  Github,
-  Info,
-  Link,
-  MoreHorizontal,
-  Save,
-} from "lucide-react";
+
+import { Github, Info, Link, MoreHorizontal, Save } from "lucide-react";
 import React from "react";
 
-const WorkSpaceHeader = ({ Tabs, setActiveTab, activeTab }: any) => {
+const WorkSpaceHeader = ({
+  Tabs,
+  setActiveTab,
+  activeTab,
+  onSave,
+  file,
+}: any) => {
   return (
     <div className="border-b border-neutral-800 h-12 flex items-center px-4 w-full">
       {/* file name portion */}
       <div className="flex space-x-2 items-center justify-start w-full">
         <img src="/logo.svg" alt="logo" className="w-8 h-8" />
         <div>
-          <h1 className="text-sm font-medium">File Name</h1>
+          <h1 className="text-sm font-medium">
+            {file ? file.fileName : "Untitled"}
+          </h1>
         </div>
         <div className="rounded-sm hover:bg-neutral-700 hover:text-white cursor-pointer p-1">
           <MoreHorizontal size={16} />
@@ -60,7 +62,10 @@ const WorkSpaceHeader = ({ Tabs, setActiveTab, activeTab }: any) => {
           Give Star on GitHub
           <Github size={16} className="ml-2" />
         </div>
-        <div className="rounded-sm flex text-sm items-center bg-blue-700 hover:bg-blue-800 hover:text-white cursor-pointer px-2 py-1">
+        <div
+          onClick={() => onSave()}
+          className="rounded-sm flex text-sm items-center bg-blue-700 hover:bg-blue-800 hover:text-white cursor-pointer px-2 py-1"
+        >
           <Save size={20} />
         </div>
         <div className="rounded-sm flex text-sm items-center bg-blue-700 hover:bg-blue-800 hover:text-white cursor-pointer px-2 py-1">
