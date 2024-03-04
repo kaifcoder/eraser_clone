@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Eraser.io Clone made with NextJS 14
+
+Welcome to the repository for a clone of Eraser.io, built with a modern stack including Next.js, Tailwind CSS, Shadcn/UI, Convex Database, and Kinde Authentication. This project is a showcase of cutting-edge web technologies and collaborative open-source development.
+
+## Walkthrough
+
+https://github.com/kaifcoder/eraser_clone/assets/57701861/5aa989ef-dc9d-444a-9fd1-7b89a2b86168
 
 ## Getting Started
 
@@ -16,9 +22,13 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Bug Reporting and Feature Requests
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Encountered a bug or have a feature request? Please file an issue in the GitHub repository using the issue tracker.
+
+## Stay Connected
+
+Let's build something extraordinary together! Join the effort and be a part of the future of web development.
 
 ## Learn More
 
