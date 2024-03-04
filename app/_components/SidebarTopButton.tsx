@@ -10,12 +10,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LogOut, Plus, Settings } from "lucide-react";
-import path from "path";
 import { useRouter } from "next/navigation";
-import {
-  LogoutLink,
-  useKindeBrowserClient,
-} from "@kinde-oss/kinde-auth-nextjs";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { useConvex } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
@@ -68,7 +64,7 @@ const SidebarTopButton = ({ user, setActiveTeamInfo }: any) => {
   let [isOpen, setIsOpen] = useState(false);
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none">
+      <DropdownMenuTrigger asChild className="outline-none">
         <div
           className={cn(
             "flex items-center w-fit hover:bg-neutral-600 gap-2 cursor-pointer rounded-md px-2 mt-4 ml-2",
@@ -111,12 +107,12 @@ const SidebarTopButton = ({ user, setActiveTeamInfo }: any) => {
             {item.name}
           </DropdownMenuItem>
         ))}
-
-        <DropdownMenuItem className="cursor-pointer focus:bg-neutral-700 focus:text-white">
-          <LogOut size={16} className="mr-2" />
-          <LogoutLink>Logout</LogoutLink>
-        </DropdownMenuItem>
-
+        <LogoutLink>
+          <DropdownMenuItem className="cursor-pointer focus:bg-neutral-700 focus:text-white">
+            <LogOut size={16} className="mr-2" />
+            Logout
+          </DropdownMenuItem>
+        </LogoutLink>
         <DropdownMenuSeparator className="bg-neutral-600" />
         <div className="flex items-center space-x-2 p-2 rounded-lg">
           <div>
