@@ -49,9 +49,7 @@ const Workspace = ({ params }: any) => {
 
   const [activeTab, setActiveTab] = useState(Tabs[1].name);
   const [triggerSave, setTriggerSave] = useState(false);
-  const [whiteBoard, setWhiteBoard] = useState<any>(
-    fileData && fileData.whiteboard ? JSON.parse(fileData.whiteboard) : null
-  );
+
   return (
     <div className="overflow-hidden w-full">
       <WorkSpaceHeader
@@ -93,8 +91,6 @@ const Workspace = ({ params }: any) => {
               onSaveTrigger={triggerSave}
               fileId={params.fileId}
               fileData={fileData!}
-              whiteBoard={whiteBoard}
-              setWhiteBoard={setWhiteBoard}
             />
           </ResizablePanel>
         </ResizablePanelGroup>
@@ -108,8 +104,6 @@ const Workspace = ({ params }: any) => {
             onSaveTrigger={triggerSave}
             fileId={params.fileId}
             fileData={fileData!}
-            whiteBoard={whiteBoard}
-            setWhiteBoard={setWhiteBoard}
           />
         </div>
       ) : null}

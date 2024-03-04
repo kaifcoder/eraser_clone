@@ -10,17 +10,15 @@ const Canvas = ({
   onSaveTrigger,
   fileId,
   fileData,
-  whiteBoard,
-  setWhiteBoard,
 }: {
   onSaveTrigger: any;
   fileId: any;
   fileData: FILE;
-  whiteBoard: any;
-  setWhiteBoard: any;
 }) => {
+  const [whiteBoard, setWhiteBoard] = useState<any>();
+
   useEffect(() => {
-    saveWhiteboard();
+    whiteBoard && saveWhiteboard();
   }, [onSaveTrigger]);
 
   const updateWhiteBoard = useMutation(api.files.updateWhiteboard);
